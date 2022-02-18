@@ -8,10 +8,13 @@ chrome.runtime.onInstalled.addListener(() => {
     });
 });
 
+// https://stackoverflow.com/questions/5443202/call-a-function-in-background-from-popup
 chrome.runtime.onMessage.addListener(
     function(request, _sender, _sendResponse){
         if(request.msg == MESSAGE_KEY_INSERT_TO_DB) {
-          insertItem();
+          insertItem(
+            request.currentURL,
+          );
         }
     }
 );

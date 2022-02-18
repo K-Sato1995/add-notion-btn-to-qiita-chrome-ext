@@ -36,5 +36,5 @@
             "128": "/icons/get_started128.png"
         }
     },
-    "permissions": ["storage", "activeTab"]
+    "permissions": ["storage", "activeTab", "tabs"]
 }

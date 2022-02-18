@@ -10,6 +10,6 @@ const logo = document.createElement("button");
 logo.setAttribute("id", "notion-btn-to-qiita-btn");
 logo.innerText="N";
 logo.onclick = () => { 
-    chrome.runtime.sendMessage({ msg: MESSAGE_KEY_INSERT_TO_DB });
+    chrome.runtime.sendMessage({ msg: MESSAGE_KEY_INSERT_TO_DB, currentURL });
 }
 document.body.appendChild(logo);
