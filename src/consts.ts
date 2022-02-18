@@ -1,0 +1,1 @@
+export const MESSAGE_KEY_INSERT_TO_DB = 'InsertToDB';
