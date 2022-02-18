@@ -23,10 +23,8 @@
 
 <div class="container">
   <h1>Notion x Qiita</h1>
-  <input placeholder="Notion API Token" bind:value={dbID} />
-  <input placeholder="Database Url" bind:value={notionAPIToken} />
-  <p>{dbID}</p>
-  <p>{notionAPIToken}</p>
+  <input placeholder="Notion API Token" bind:value={notionAPIToken} />
+  <input placeholder="Database Url" bind:value={dbID} />
   <div>
     <button on:click={save}>Save</button>
     {#if successMessage}<span class="success">{successMessage}</span>{/if}
