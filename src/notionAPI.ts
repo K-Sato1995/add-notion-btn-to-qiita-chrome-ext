@@ -10,7 +10,7 @@ const initaializeNotionClient = (apiToken) => {
     return notion;
   };
   
-export const insertItem = async (path, apiToken, dbID) => {
+export const insertItem = async (path, qiitaTitle, apiToken, dbID) => {
   const notionClient = initaializeNotionClient(apiToken);
   console.log(apiToken)
   console.log(dbID)
@@ -22,7 +22,7 @@ export const insertItem = async (path, apiToken, dbID) => {
           title: [
             {
               text: {
-                content: "Title here",
+                content: qiitaTitle,
               },
             },
           ],

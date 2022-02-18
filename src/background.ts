@@ -12,8 +12,11 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.runtime.onMessage.addListener(
     function(request, _sender, _sendResponse){
         if(request.msg == MESSAGE_KEY_INSERT_TO_DB) {
+          const { currentURL, qiitaTitle } = request;
           insertItem(
-            request.currentURL,
+            currentURL,
+            qiitaTitle,
+
           );
         }
     }
