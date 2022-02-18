@@ -1,3 +1,4 @@
 export type IStorage = {
-    count: number;
+    notionAPIToken: string;
+    dbID: string;
 };

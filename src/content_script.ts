@@ -1,9 +1,9 @@
 import type { IStorage } from "./types";
 import { MESSAGE_KEY_INSERT_TO_DB, QIITA_ARTICLE_TITLE_TAG } from './consts'
 
-chrome.storage.sync.get({ count: 0 } as IStorage, ({ count }: IStorage) => {
-    console.log(count);
-});
+// chrome.storage.sync.get({ count: 0 } as IStorage, ({ count }: IStorage) => {
+//     console.log(count);
+// });
 
 var qiitaTitle = document.getElementsByTagName(QIITA_ARTICLE_TITLE_TAG)[0].innerText
 

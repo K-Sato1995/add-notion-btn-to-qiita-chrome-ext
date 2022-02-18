@@ -1,24 +1,18 @@
 <script lang="ts">
   import type { IStorage } from "../types";
 
-  export let count: number;
+  export let notionAPIToken: string = null;
+  export let dbID: string = null;
   let successMessage: string = null;
-
-  function increment() {
-    count += 1;
-  }
-
-  function decrement() {
-    count -= 1;
-  }
 
   function save() {
     const storage: IStorage = {
-      count,
+      notionAPIToken,
+      dbID,
     };
 
     chrome.storage.sync.set(storage, () => {
-      successMessage = "Options saved!";
+      successMessage = "Data saved!";
 
       setTimeout(() => {
         successMessage = null;
@@ -28,37 +22,83 @@
 </script>
 
 <div class="container">
-  <p>Current count: <b>{count}</b></p>
+  <h1>Notion x Qiita</h1>
+  <input placeholder="Notion API Token" bind:value={dbID} />
+  <input placeholder="Database Url" bind:value={notionAPIToken} />
+  <p>{dbID}</p>
+  <p>{notionAPIToken}</p>
   <div>
-    <button on:click={decrement}>-</button>
-    <button on:click={increment}>+</button>
     <button on:click={save}>Save</button>
     {#if successMessage}<span class="success">{successMessage}</span>{/if}
   </div>
 </div>
 
 <style>
+  :root {
+    --main-color: #ff3e00;
+  }
+
   .container {
-    min-width: 250px;
+    color: #333;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 1em;
+    max-width: 240px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  }
+
+  h1 {
+    color: var(--main-color);
+    font-size: 2em;
+    font-weight: 100;
+  }
+
+  input,
+  button {
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-padding: 0.4em 0;
+    padding: 0.4em;
+    margin: 0 0 0.5em 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    outline: none;
+  }
+
+  input:disabled {
+    color: #ccc;
+  }
+
+  input:focus {
+    border: 2px solid var(--main-color);
+  }
+
+  button:focus {
+    border-color: #666;
   }
 
   button {
     border-radius: 2px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-    background-color: #2ecc71;
+    background-color: var(--main-color);
     color: #ecf0f1;
     transition: background-color 0.3s;
     padding: 5px 10px;
     border: none;
+    cursor: pointer;
   }
 
   button:hover,
   button:focus {
-    background-color: #27ae60;
+    background-color: var(--main-color);
   }
 
   .success {
-    color: #2ecc71;
+    display: block;
+    color: var(--main-color);
     font-weight: bold;
   }
 </style>
