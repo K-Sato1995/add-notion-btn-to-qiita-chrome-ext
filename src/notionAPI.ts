@@ -14,6 +14,7 @@ const initaializeNotionClient = (apiToken) => {
 export const insertItem = async (NotionProperty: NotionProperty) => {
   const { path, qiitaTitle, tagsText, apiToken, dbID, postedDate } = NotionProperty
   const notionClient = initaializeNotionClient(apiToken);
+  const today = new Date().toISOString().slice(0, 10)
   const tagObj = []
   
   tagsText.split(' ').forEach(ele => {
@@ -39,6 +40,11 @@ export const insertItem = async (NotionProperty: NotionProperty) => {
         PostedDate: {
           date: {
             start: postedDate,
+          }
+        },
+        InsertedDate: {
+          date: {
+            start: today,
           }
         },
         Tags: {
