@@ -1,6 +1,6 @@
 {
-    "name": "chrome-extension-svelte-typescript-boilerplate",
-    "version": "1.2.0",
+    "name": "add-notion-btn-to-qiita",
+    "version": "1.0.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/nekitcorp/chrome-extension-svelte-typescript-boilerplate.git"
