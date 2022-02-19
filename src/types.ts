@@ -11,3 +11,8 @@ export interface NotionProperty {
     apiToken: string
     dbID: string
 }
+
+export type RequestResult = {
+    type: "ERROR" | "OK",
+    msg: string
+}

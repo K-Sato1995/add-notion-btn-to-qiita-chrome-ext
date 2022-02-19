@@ -1,5 +1,5 @@
 import { Client } from '@notionhq/client'
-import type { NotionProperty } from './types'
+import type { NotionProperty, RequestResult } from './types'
 
 const initaializeNotionClient = (apiToken) => {
     if (!apiToken) {
@@ -9,9 +9,9 @@ const initaializeNotionClient = (apiToken) => {
       auth: apiToken,
     });
     return notion;
-  };
+};
   
-export const insertItem = async (NotionProperty: NotionProperty) => {
+export const insertItem = async (NotionProperty: NotionProperty): Promise<RequestResult> => {
   const { path, qiitaTitle, tagsText, apiToken, dbID, postedDate } = NotionProperty
   const notionClient = initaializeNotionClient(apiToken);
   const today = new Date().toISOString().slice(0, 10)
@@ -52,8 +52,8 @@ export const insertItem = async (NotionProperty: NotionProperty) => {
         },
       },
     });
-    console.log("Success!!");
+    return { type: "OK", msg: '' }
   } catch (error) {
-    console.log(error.message)
+    return { type: "ERROR", msg: `ERROR: ${error.message}` }
   }
 };
