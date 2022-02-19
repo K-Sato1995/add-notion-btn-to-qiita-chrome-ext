@@ -10,10 +10,14 @@ const initaializeNotionClient = (apiToken) => {
     return notion;
   };
   
-export const insertItem = async (path, qiitaTitle, apiToken, dbID) => {
+export const insertItem = async (path, qiitaTitle, tags, apiToken, dbID) => {
   const notionClient = initaializeNotionClient(apiToken);
-  console.log(apiToken)
-  console.log(dbID)
+  const tagObj = []
+  
+  tags.split(' ').forEach(ele => {
+    tagObj.push({'name': ele})
+  });
+  
   try {
     await notionClient.pages.create({
       parent: { database_id: dbID },
@@ -23,13 +27,16 @@ export const insertItem = async (path, qiitaTitle, apiToken, dbID) => {
             {
               text: {
                 content: qiitaTitle,
-              },
+              },      
             },
           ],
         },
         URL: {
           url: path,
         },
+        Tags: {
+          multi_select: tagObj
+        }
       },
     });
     console.log("Success!!");

@@ -17,12 +17,13 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.runtime.onMessage.addListener(
     function(request, _sender, _sendResponse){
         if(request.msg == MESSAGE_KEY_INSERT_TO_DB) {
-          const { currentURL, qiitaTitle } = request;
+          const { currentURL, qiitaTitle, tags } = request;
           insertItem(
             currentURL,
             qiitaTitle,
+            tags,
             apiToken,
-            notionDbID
+            notionDbID,
           );
         }
     }
