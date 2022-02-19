@@ -2,7 +2,6 @@ import type { IStorage } from "./types";
 import { insertItem } from './notionAPI'
 import { MESSAGE_KEY_INSERT_TO_DB } from './consts'
 
-
 let apiToken;
 let notionDbID;
 
@@ -17,11 +16,11 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.runtime.onMessage.addListener(
     function(request, _sender, _sendResponse){
         if(request.msg == MESSAGE_KEY_INSERT_TO_DB) {
-          const { currentURL, qiitaTitle, tags } = request;
+          const { currentURL, qiitaTitle, tagsText } = request;
           insertItem({
                 path: currentURL,
                 qiitaTitle,
-                tagsText: tags,
+                tagsText,
                 apiToken,
                 dbID: notionDbID
             });

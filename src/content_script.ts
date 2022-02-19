@@ -22,6 +22,6 @@ const logo = document.createElement("button");
 logo.setAttribute("id", "notion-btn-to-qiita-btn");
 logo.innerText="N";
 logo.onclick = () => { 
-    chrome.runtime.sendMessage({ msg: MESSAGE_KEY_INSERT_TO_DB, currentURL, qiitaTitle, tags: tagTexts.join(' ') });
+    chrome.runtime.sendMessage({ msg: MESSAGE_KEY_INSERT_TO_DB, currentURL, qiitaTitle, tagsText: tagTexts.join(' ') });
 }
 document.body.appendChild(logo);
