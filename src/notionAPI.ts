@@ -3,7 +3,7 @@ import type { NotionProperty } from './types'
 
 const initaializeNotionClient = (apiToken) => {
     if (!apiToken) {
-      console.log("Set Notion API TOKEN");
+      throw new Error("Set Notion API TOKEN")
     }
     const notion = new Client({
       auth: apiToken,
