@@ -18,13 +18,13 @@ chrome.runtime.onMessage.addListener(
     function(request, _sender, _sendResponse){
         if(request.msg == MESSAGE_KEY_INSERT_TO_DB) {
           const { currentURL, qiitaTitle, tags } = request;
-          insertItem(
-            currentURL,
-            qiitaTitle,
-            tags,
-            apiToken,
-            notionDbID,
-          );
+          insertItem({
+                path: currentURL,
+                qiitaTitle,
+                tagsText: tags,
+                apiToken,
+                dbID: notionDbID
+            });
         }
     }
 );

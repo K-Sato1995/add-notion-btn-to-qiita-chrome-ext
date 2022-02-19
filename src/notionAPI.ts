@@ -1,4 +1,5 @@
 import { Client } from '@notionhq/client'
+import type { NotionProperty } from './types'
 
 const initaializeNotionClient = (apiToken) => {
     if (!apiToken) {
@@ -10,11 +11,12 @@ const initaializeNotionClient = (apiToken) => {
     return notion;
   };
   
-export const insertItem = async (path, qiitaTitle, tags, apiToken, dbID) => {
+export const insertItem = async (NotionProperty: NotionProperty) => {
+  const { path, qiitaTitle, tagsText, apiToken, dbID } = NotionProperty
   const notionClient = initaializeNotionClient(apiToken);
   const tagObj = []
   
-  tags.split(' ').forEach(ele => {
+  tagsText.split(' ').forEach(ele => {
     tagObj.push({'name': ele})
   });
   
