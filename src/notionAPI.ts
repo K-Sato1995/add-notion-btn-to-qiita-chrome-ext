@@ -12,7 +12,7 @@ const initaializeNotionClient = (apiToken) => {
   };
   
 export const insertItem = async (NotionProperty: NotionProperty) => {
-  const { path, qiitaTitle, tagsText, apiToken, dbID } = NotionProperty
+  const { path, qiitaTitle, tagsText, apiToken, dbID, postedDate } = NotionProperty
   const notionClient = initaializeNotionClient(apiToken);
   const tagObj = []
   
@@ -36,9 +36,14 @@ export const insertItem = async (NotionProperty: NotionProperty) => {
         URL: {
           url: path,
         },
+        PostedDate: {
+          date: {
+            start: postedDate,
+          }
+        },
         Tags: {
-          multi_select: tagObj
-        }
+          multi_select: tagObj,
+        },
       },
     });
     console.log("Success!!");

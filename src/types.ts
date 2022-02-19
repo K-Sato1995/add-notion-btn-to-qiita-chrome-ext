@@ -4,9 +4,10 @@ export type IStorage = {
 };
 
 export interface NotionProperty {
-    path: string 
+    path: string
     qiitaTitle: string
     tagsText: string
+    postedDate: string
     apiToken: string
     dbID: string
 }
