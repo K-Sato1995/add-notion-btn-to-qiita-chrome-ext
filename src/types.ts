@@ -8,7 +8,6 @@ export interface NotionProperty {
     qiitaTitle: string
     tagsText: string
     postedDate: string
-    apiToken: string
     dbID: string
 }
 
