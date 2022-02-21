@@ -2,7 +2,6 @@ import { Client } from '@notionhq/client'
 import type { NotionProperty, RequestResult } from './types'
 
 export const initaializeNotionClient = (apiToken) => {
-    console.log(`Init: ${apiToken}`)
     if (!apiToken) {
       throw new Error("Set Notion API TOKEN")
     }
