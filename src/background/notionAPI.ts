@@ -1,5 +1,5 @@
 import { Client } from '@notionhq/client'
-import type { NotionProperty, RequestResult } from './types'
+import type { NotionProperty, RequestResult } from '../types'
 
 export const initaializeNotionClient = (apiToken) => {
     if (!apiToken) {
