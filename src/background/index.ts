@@ -1,7 +1,7 @@
-import type { IStorage, RequestResult } from "./types";
+import type { IStorage, RequestResult } from "../types";
 import type { Client } from '@notionhq/client'
-import { insertItem, initaializeNotionClient } from './notionAPI'
-import { MESSAGE_KEY_INSERT_TO_DB } from './consts'
+import { insertItem, initaializeNotionClient } from '../notionAPI'
+import { MESSAGE_KEY_INSERT_TO_DB } from '../consts'
 
 let notionClient: Client;
 

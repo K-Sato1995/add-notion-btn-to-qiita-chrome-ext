@@ -15,9 +15,9 @@ const production = !process.env.ROLLUP_WATCH;
  * @param {string} filename
  * @param {boolean} useSvelte
  */
-function createConfig(filename, useSvelte = false) {
+function createConfig(path, filename, useSvelte = false) {
     return {
-        input: `src/${filename}.ts`,
+        input: path,
         output: {
             format: "iife",
             file: `public/build/${filename}.js`,
@@ -58,8 +58,7 @@ function createConfig(filename, useSvelte = false) {
 }
 
 export default [
-    createConfig("options", true),
-    createConfig("popup", true),
-    createConfig("background"),
-    createConfig("content_script"),
+    createConfig("src/options.ts", "options", true),
+    createConfig("src/background/index.ts", "background"),
+    createConfig("src/content_script/index.ts", "content_script"),
 ];
