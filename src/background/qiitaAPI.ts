@@ -13,15 +13,14 @@ export class QiitaAPIClient {
   }
 
   async fetchUser(userID: string): Promise<Partial<Qiita.User>> {
+    let userInfo: Qiita.User
     const userDetailEndpoint = `${QIITA_API_ENDPOINT}/users/${userID}`;
-    const response = await fetch(userDetailEndpoint);
-
-    if (!response.ok) {
-      const message = `An error has occured: ${response.status}`;
-      throw new Error(message);
+    try {
+      const response = await fetch(userDetailEndpoint);
+      userInfo = await response.json();
+    } catch(err) {
+      console.log(err);
     }
-
-    const userInfo = await response.json();
     return userInfo;
   }
 
