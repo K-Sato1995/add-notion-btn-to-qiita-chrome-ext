@@ -13,7 +13,6 @@ const initaializeNotionClient = (apiToken) => {
   
 export const insertItem = async (NotionProperty: NotionProperty): Promise<RequestResult> => {
   const { path, qiitaTitle, tagsText, apiToken, dbID, postedDate } = NotionProperty
-  const notionClient = initaializeNotionClient(apiToken);
   const today = new Date().toISOString().slice(0, 10)
   const tagObj = []
   
@@ -22,6 +21,7 @@ export const insertItem = async (NotionProperty: NotionProperty): Promise<Reques
   });
   
   try {
+    const notionClient = initaializeNotionClient(apiToken);
     await notionClient.pages.create({
       parent: { database_id: dbID },
       properties: {
