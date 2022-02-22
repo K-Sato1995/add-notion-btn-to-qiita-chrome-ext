@@ -1,4 +1,6 @@
 import { QIITA_OPTIONS_CLASS_NAME } from '../consts'
+import type { UserProfileResponse } from '../types'
+
 // https://stackoverflow.com/questions/36798005/append-multiple-items-in-javascripts
 export const insertUserProfile = (desc) => {
   const mainBody = document.getElementsByClassName(QIITA_OPTIONS_CLASS_NAME)[0]
@@ -10,8 +12,6 @@ export const insertUserProfile = (desc) => {
   appendChildren(userContainer,createChildren())
   mainBody.prepend(userContainer)
 }
-
-
 
 const createChildren = () => {
   // UserProfileTop
@@ -30,4 +30,13 @@ const appendChildren = (parentNode: HTMLElement, domNodes: HTMLElement[]) => {
   domNodes.forEach(ele => {
     parentNode.appendChild(ele)
   })
+}
+
+export const handleUserProfileResponse = (response: UserProfileResponse) => {
+  if (response.type == 'OK') {
+    const { userData } = response;
+    insertUserProfile(userData.description)
+  } else {
+    alert(response.msg)
+  }
 }

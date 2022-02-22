@@ -21,6 +21,9 @@ export type RequestResult = {
 
 export interface NotionQiitaResponse extends RequestResult {}
 
+export interface UserProfileResponse extends RequestResult {
+    userData: Qiita.User;
+}
 
 export namespace Qiita {
     export interface User {
