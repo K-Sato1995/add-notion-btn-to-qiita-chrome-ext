@@ -9,3 +9,11 @@ jobs:
         run: npm install
       - name: Run tests
         run: npm run test
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: yarn
+      - name: Run ESLint
+        run: npm run lint
