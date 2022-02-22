@@ -1,16 +1,18 @@
-import { QIITA_OPTIONS_CLASS_NAME } from '../consts'
+import { QIITA_CONTENT_WRAPPER_CLASS_NAME, QIITA_TOC_CLASS_NAME } from '../consts'
 import type { Qiita, UserProfileResponse } from '../types'
 
 // https://stackoverflow.com/questions/36798005/append-multiple-items-in-javascripts
 export const insertUserProfile = (userData: Partial<Qiita.User>) => {
-  const mainBody = document.getElementsByClassName(QIITA_OPTIONS_CLASS_NAME)[0]
+  // The class name of the box I wanna access to is dinamically defined. Thereore, I'm getting the wrapper first.
+  const mainBody = document.getElementsByClassName(QIITA_CONTENT_WRAPPER_CLASS_NAME)[0].firstChild
 
   const userContainer = document.createElement('div') 
   userContainer.setAttribute('id', 'user-profile-container')
   // userContainer.innerText = description;
   // Construct user's profile.
   appendChildren(userContainer,createChildren(userData))
-  mainBody.prepend(userContainer)
+
+  mainBody.appendChild(userContainer) 
 }
 
 const createChildren = (userData: Partial<Qiita.User>) => {
