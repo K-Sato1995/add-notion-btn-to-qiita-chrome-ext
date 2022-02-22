@@ -1,16 +1,16 @@
 import type { EXTENSION_ACTION } from './types'
 
-const MESSAGE_KEY_INSERT_TO_DB = 'InsertToDB';
-const FETCH_USER_DATA = 'FetchUserData';
-const QIITA_ARTICLE_TITLE_TAG = 'h1';
-const QIITA_ARTICLE_TAG_HREF = '/tags';
-const QIITA_POSTED_DATE_TAG = 'time';
-const QIITA_OPTIONS_CLASS_NAME = 'p-items_toc';
-const QIITA_API_ENDPOINT = 'https://qiita.com/api/v2';
-const QIITA_USER_ID_INDEX = 3;
+const MESSAGE_KEY_INSERT_TO_DB = 'InsertToDB'
+const FETCH_USER_DATA = 'FetchUserData'
+const QIITA_ARTICLE_TITLE_TAG = 'h1'
+const QIITA_ARTICLE_TAG_HREF = '/tags'
+const QIITA_POSTED_DATE_TAG = 'time'
+const QIITA_OPTIONS_CLASS_NAME = 'p-items_toc'
+const QIITA_API_ENDPOINT = 'https://qiita.com/api/v2'
+const QIITA_USER_ID_INDEX = 3
 const EXTENSION_ACTIONS: { [id: string]: EXTENSION_ACTION} = {
-  NOTION_QIITA: "NOTION_QIITA",
-  USER_PROFILE: "USER_PROFILE"
+  NOTION_QIITA: 'NOTION_QIITA',
+  USER_PROFILE: 'USER_PROFILE'
 }
 
 export { 
