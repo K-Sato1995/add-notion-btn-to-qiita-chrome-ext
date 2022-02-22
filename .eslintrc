@@ -1,4 +1,3 @@
-// https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
@@ -9,5 +8,9 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
-  ]
+  ],
+  "rules": {
+    "semi": [1, "never"],
+    "quotes": [1, "single"]
+  }
 }

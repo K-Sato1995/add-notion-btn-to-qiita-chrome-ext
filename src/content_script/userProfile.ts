@@ -5,8 +5,8 @@ import type { Qiita, UserProfileResponse } from '../types'
 export const insertUserProfile = (userData: Partial<Qiita.User>) => {
   const mainBody = document.getElementsByClassName(QIITA_OPTIONS_CLASS_NAME)[0]
 
-  const userContainer = document.createElement("div"); 
-  userContainer.setAttribute("id", "user-profile-container");
+  const userContainer = document.createElement('div') 
+  userContainer.setAttribute('id', 'user-profile-container')
   // userContainer.innerText = description;
   // Construct user's profile.
   appendChildren(userContainer,createChildren(userData))
@@ -14,22 +14,22 @@ export const insertUserProfile = (userData: Partial<Qiita.User>) => {
 }
 
 const createChildren = (userData: Partial<Qiita.User>) => {
-  const { id, name, description } = userData;
+  const { id, name, description } = userData
   // UserProfileTop
   const userProfileTop = document.createElement('div')
-  userProfileTop.setAttribute("id", "user-profile-top");
+  userProfileTop.setAttribute('id', 'user-profile-top')
 
   // Create doms
   const userName = document.createElement('div')
   const userDescription = document.createElement('div')
  
   // Set Attributes
-  userName.setAttribute("id", "user-name");
-  userDescription.setAttribute("id", "user-description");
+  userName.setAttribute('id', 'user-name')
+  userDescription.setAttribute('id', 'user-description')
 
   // Set Values
-  userName.innerText = name;
-  userDescription.innerText = description;
+  userName.innerText = name
+  userDescription.innerText = description
 
   appendChildren(userProfileTop, [userName, userDescription])
 
@@ -44,7 +44,7 @@ const appendChildren = (parentNode: HTMLElement, domNodes: HTMLElement[]) => {
 
 export const handleUserProfileResponse = (response: UserProfileResponse) => {
   if (response.type == 'OK') {
-    const { userData } = response;
+    const { userData } = response
     insertUserProfile(userData)
   } else {
     alert(response.msg)

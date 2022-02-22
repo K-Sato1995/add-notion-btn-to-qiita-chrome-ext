@@ -10,7 +10,7 @@
         "dev": "rollup -c -w",
         "validate": "svelte-check",
         "test": "./node_modules/.bin/jest --config ./jest.config.js",
-        "lint": "eslint src/**/*.ts"
+        "lint": "eslint src/**/*.ts --fix"
     },
     "devDependencies": {
         "@rollup/plugin-commonjs": "^21.0.0",

@@ -3,13 +3,13 @@ import type { NotionProperty, RequestResult } from '../types'
 
 export const initaializeNotionClient = (apiToken) => {
     if (!apiToken) {
-      throw new Error("Set Notion API TOKEN")
+      throw new Error('Set Notion API TOKEN')
     }
     const notion = new Client({
       auth: apiToken,
-    });
-    return notion;
-};
+    })
+    return notion
+}
   
 export const insertItem = async (NotionClient: Client, NotionProperty: NotionProperty) => {
   const { path, qiitaTitle, tagsText, dbID, postedDate } = NotionProperty
@@ -18,7 +18,7 @@ export const insertItem = async (NotionClient: Client, NotionProperty: NotionPro
   
   tagsText.split(' ').forEach(ele => {
     tagObj.push({'name': ele})
-  });
+  })
   
   await NotionClient.pages.create({
     parent: { database_id: dbID },
@@ -49,5 +49,5 @@ export const insertItem = async (NotionClient: Client, NotionProperty: NotionPro
         multi_select: tagObj,
       },
     },
-  });
-};
+  })
+}
