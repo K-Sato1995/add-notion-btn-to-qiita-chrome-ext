@@ -22,7 +22,7 @@ export type RequestResult = {
 export interface NotionQiitaResponse extends RequestResult {}
 
 export interface UserProfileResponse extends RequestResult {
-    userData: Qiita.User;
+    userData: Partial<Qiita.User>;
 }
 
 export namespace Qiita {

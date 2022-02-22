@@ -1,4 +1,4 @@
-import type { IStorage, RequestResult } from "../types";
+import type { IStorage, NotionQiitaResponse, UserProfileResponse } from "../types";
 import type { Client } from '@notionhq/client'
 import { insertItem, initaializeNotionClient } from './notionAPI'
 import { MESSAGE_KEY_INSERT_TO_DB, FETCH_USER_DATA, EXTENSION_ACTIONS } from '../consts'
@@ -7,7 +7,7 @@ import { QiitaAPIClient } from './qiitaAPI'
 let notionClient: Client;
 let qiitaClient: QiitaAPIClient;
 
-const sendMsgToContentScript = (response: RequestResult) => {
+const sendMsgToContentScript = (response:  NotionQiitaResponse | UserProfileResponse) => {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
         chrome.tabs.sendMessage(tabs[0].id, response, function() {});  
     });
@@ -44,7 +44,7 @@ chrome.runtime.onMessage.addListener(
             }
             try {
                 const result = await qiitaClient.fetchUser(userID)
-                console.log(result)
+                sendMsgToContentScript({ userData: result, action: EXTENSION_ACTIONS.USER_PROFILE, type: "OK", msg: "" })
             } catch(error) {
                 sendMsgToContentScript({ action: EXTENSION_ACTIONS.USER_PROFILE, type: "ERROR", msg: `ERROR: ${error.message}` })
             }
