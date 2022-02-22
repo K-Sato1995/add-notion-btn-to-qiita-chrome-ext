@@ -9,6 +9,7 @@ let qiitaClient: QiitaAPIClient
 
 const sendMsgToContentScript = (response:  NotionQiitaResponse | UserProfileResponse) => {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+        /* eslint-disable @typescript-eslint/no-empty-function*/
         chrome.tabs.sendMessage(tabs[0].id, response, function() {})  
     })
 }
@@ -16,6 +17,7 @@ const sendMsgToContentScript = (response:  NotionQiitaResponse | UserProfileResp
 // Listen to the content script
 // https://stackoverflow.com/questions/5443202/call-a-function-in-background-from-popup
 chrome.runtime.onMessage.addListener(
+    /* eslint-disable @typescript-eslint/no-unused-vars */
     async function(request, _sender, _sendResponse){
         if(request.msg == MESSAGE_KEY_INSERT_TO_DB) {
           const { currentURL, qiitaTitle, tagsText, postedDate } = request
