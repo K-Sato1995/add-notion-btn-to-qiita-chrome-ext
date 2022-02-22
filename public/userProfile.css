@@ -1,5 +1,5 @@
 #user-profile-container {
-  border: 3px solid;
+  border: 1px solid #ddd;
   width: 300px;
   height: 270px;
   padding: 24px;
@@ -18,8 +18,22 @@
 #user-profile-top {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#user-img {
+  border-radius: 50%;
+  height: 72px;
+  width: 72px;
+  margin-bottom: 16px;
 }
 
 #user-name {
-  border: 1px red;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+#user-id {
+  color: #8a8b8b;
 }
