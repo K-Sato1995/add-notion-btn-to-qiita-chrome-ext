@@ -1,6 +1,12 @@
-# Add Notion btn to Qiita(Chrome Extension)
+# Qiita Enhancer(Chrome Extension)
 
-## Overview
+## Display User profile on the post
+
+Before | After
+--- | ---
+![Screen Shot 2022-02-22 at 8.31.01 PM.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/258219/700f3198-0b91-b4ca-4d63-8952950b61ca.png) | ![Screen Shot 2022-02-22 at 8.29.23 PM.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/258219/56ca2ef5-1336-b13d-f417-3cd8836f1b94.png)
+
+## Notion Integration
 
 ### (1) Click the notion btn
 ![Screen Shot 2022-02-19 at 2.57.07 PM.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/258219/dc3f5d7a-d7ab-3f81-3186-70294c30a230.png)
