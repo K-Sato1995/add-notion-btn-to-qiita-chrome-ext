@@ -17,7 +17,7 @@ Before | After
 
 ## Headsup
 
-You probably don't need this extension.
+For notion integration, you probably don't need this extension.
 The official __[Notion Web Clipper](https://www.notion.so/web-clipper)__
  is pretty awesome.
 
