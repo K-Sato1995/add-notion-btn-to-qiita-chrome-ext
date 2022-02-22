@@ -8,6 +8,7 @@ const userID = currentURL.split('/')[QIITA_USER_ID_INDEX]
 chrome.runtime.sendMessage({ msg: FETCH_USER_DATA, userID })
 
 // Listen to the msg from background script
+// eslint-disable-next-line
 chrome.runtime.onMessage.addListener((response: NotionQiitaResponse | UserProfileResponse, _sender, _sendResponse) => {
     if(isUserProfileAction(response)) {
         handleUserProfileResponse(response)

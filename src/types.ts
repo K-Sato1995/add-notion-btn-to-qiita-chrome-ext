@@ -25,6 +25,7 @@ export interface UserProfileResponse extends RequestResult {
     userData: Partial<Qiita.User>;
 }
 
+// eslint-disable-next-line
 export namespace Qiita {
     export interface User {
         'description': string,
