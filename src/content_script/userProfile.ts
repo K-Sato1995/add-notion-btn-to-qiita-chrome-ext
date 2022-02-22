@@ -1,11 +1,11 @@
 import { QIITA_OPTIONS_CLASS_NAME } from '../consts'
 // https://stackoverflow.com/questions/36798005/append-multiple-items-in-javascripts
-export const insertUserProfile = () => {
+export const insertUserProfile = (desc) => {
   const mainBody = document.getElementsByClassName(QIITA_OPTIONS_CLASS_NAME)[0]
 
   const userContainer = document.createElement("div"); 
   userContainer.setAttribute("id", "user-profile-container");
-
+  userContainer.innerText=desc;
   // Construct user's profile.
   appendChildren(userContainer,createChildren())
   mainBody.prepend(userContainer)

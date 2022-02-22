@@ -11,10 +11,16 @@ export interface NotionProperty {
     dbID: string
 }
 
+export type EXTENSION_ACTION = "NOTION_QIITA" | "USER_PROFILE";
+
 export type RequestResult = {
+    action: EXTENSION_ACTION;
     type: "ERROR" | "OK",
     msg: string
 }
+
+export interface NotionQiitaResponse extends RequestResult {}
+
 
 export namespace Qiita {
     export interface User {

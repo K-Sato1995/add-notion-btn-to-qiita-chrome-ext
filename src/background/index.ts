@@ -1,18 +1,19 @@
 import type { IStorage, RequestResult } from "../types";
 import type { Client } from '@notionhq/client'
 import { insertItem, initaializeNotionClient } from './notionAPI'
-import { MESSAGE_KEY_INSERT_TO_DB } from '../consts'
-// import { QiitaAPIClient } from './qiitaAPI'
+import { MESSAGE_KEY_INSERT_TO_DB, FETCH_USER_DATA, EXTENSION_ACTIONS } from '../consts'
+import { QiitaAPIClient } from './qiitaAPI'
 
 let notionClient: Client;
+let qiitaClient: QiitaAPIClient;
 
-// Listen to the content script
 const sendMsgToContentScript = (response: RequestResult) => {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
         chrome.tabs.sendMessage(tabs[0].id, response, function() {});  
     });
 }
 
+// Listen to the content script
 // https://stackoverflow.com/questions/5443202/call-a-function-in-background-from-popup
 chrome.runtime.onMessage.addListener(
     async function(request, _sender, _sendResponse){
@@ -31,10 +32,24 @@ chrome.runtime.onMessage.addListener(
                     postedDate
                 });
             });
-            sendMsgToContentScript({ type: "OK", msg: '' })
+            sendMsgToContentScript({ action: EXTENSION_ACTIONS.NOTION_QIITA, type: "OK", msg: 'Successfuly inserted the item!!' })
           } catch(error) {
-            sendMsgToContentScript({ type: "ERROR", msg: `ERROR: ${error.message}` })
+            sendMsgToContentScript({ action: EXTENSION_ACTIONS.NOTION_QIITA, type: "ERROR", msg: `ERROR: ${error.message}` })
           }
+        } else if(request.msg === FETCH_USER_DATA) {
+            const { userID } = request;
+
+            if(!qiitaClient) {
+                qiitaClient = QiitaAPIClient.initializeClient('')
+            }
+            try {
+                const result = await qiitaClient.fetchUser(userID)
+                console.log(result)
+            } catch(error) {
+                sendMsgToContentScript({ action: EXTENSION_ACTIONS.USER_PROFILE, type: "ERROR", msg: `ERROR: ${error.message}` })
+            }
+        } else {
+            sendMsgToContentScript({ action: EXTENSION_ACTIONS.USER_PROFILE, type: "ERROR", msg: `ERROR: Non registred msg.` })
         }
     }
 );
