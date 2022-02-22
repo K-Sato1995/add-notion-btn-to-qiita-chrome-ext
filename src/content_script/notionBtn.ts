@@ -11,7 +11,7 @@ for(let i = 0; i < qiitaTags.length; i++) {
   tagTexts.push(qiitaTags[i].innerHTML)
 }
 
-export const appendNotionBtnToQiita = () => {
+export const insertNotionBtnToQiita = () => {
   const currentURL = document.location.href;
   const logo = document.createElement("button"); 
   logo.setAttribute("id", "notion-btn-to-qiita-btn");

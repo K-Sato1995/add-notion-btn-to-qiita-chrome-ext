@@ -2,6 +2,7 @@ const MESSAGE_KEY_INSERT_TO_DB = 'InsertToDB';
 const QIITA_ARTICLE_TITLE_TAG = 'h1';
 const QIITA_ARTICLE_TAG_HREF = '/tags';
 const QIITA_POSTED_DATE_TAG = 'time';
+const QIITA_OPTIONS_CLASS_NAME = 'p-items_toc';
 const QIITA_API_ENDPOINT = 'https://qiita.com/api/v2';
 
 export { 
@@ -9,5 +10,6 @@ export {
   QIITA_ARTICLE_TITLE_TAG,
   QIITA_ARTICLE_TAG_HREF,
   QIITA_POSTED_DATE_TAG, 
-  QIITA_API_ENDPOINT
+  QIITA_API_ENDPOINT,
+  QIITA_OPTIONS_CLASS_NAME
 }

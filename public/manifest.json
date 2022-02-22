@@ -16,7 +16,7 @@
     "content_scripts": [
         {
             "matches": ["https://qiita.com/*/items/*"],
-            "css": ["./logo.css"],
+            "css": ["./logo.css", "./userProfile.css"],
             "js": ["build/content_script.js"]
         }
     ],

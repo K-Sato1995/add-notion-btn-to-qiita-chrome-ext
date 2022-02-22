@@ -1,5 +1,6 @@
 import type { RequestResult } from "../types";
-import { appendNotionBtnToQiita } from './notionBtn'
+import { insertNotionBtnToQiita } from './notionBtn'
+import { insertUserProfile } from './userProfile'
 
 // Listen to the msg from background script
 chrome.runtime.onMessage.addListener((response: RequestResult, _sender, _sendResponse) => {
@@ -11,4 +12,5 @@ chrome.runtime.onMessage.addListener((response: RequestResult, _sender, _sendRes
     return true
 });
 
-appendNotionBtnToQiita()
+insertNotionBtnToQiita()
+insertUserProfile()
