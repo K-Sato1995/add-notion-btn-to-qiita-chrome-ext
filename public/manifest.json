@@ -4,10 +4,10 @@
     "version": "1.0",
     "manifest_version": 3,
     "icons": {
-        "16": "/icons/qiita-enhancer.png",
-        "32": "/icons/qiita-enhancer.png",
-        "48": "/icons/qiita-enhancer.png",
-        "128": "/icons/qiita-enhancer.png"
+        "16": "/icons/qiita-enhancer16.png",
+        "32": "/icons/qiita-enhancer32.png",
+        "48": "/icons/qiita-enhancer48.png",
+        "128": "/icons/qiita-enhancer128.png"
     },
     "host_permissions": [
         "https://qiita.com/*",
