@@ -1,5 +1,5 @@
 {
-    "name": "AddNotionBtnToQiita",
+    "name": "Qiita Enhancer",
     "description": "Add notion btn to every post on Qiita. If you click it, it inserts the post and its url to the specified db in your notion.",
     "version": "1.0",
     "manifest_version": 3,
