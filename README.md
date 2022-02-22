@@ -1,6 +1,6 @@
 # Qiita Enhancer(Chrome Extension)
 
-## Display User profile on the post
+## Display User profile on the article page
 
 Before | After
 --- | ---
