@@ -24,7 +24,7 @@
 
 <div>
   <input placeholder="Notion API Token" bind:value={notionAPIToken} />
-  <input placeholder="Database Url" bind:value={dbID} />
+  <input placeholder="Database ID" bind:value={dbID} />
   <div>
     <button on:click={save}>Save</button>
     {#if successMessage}<span class="success">{successMessage}</span>{/if}

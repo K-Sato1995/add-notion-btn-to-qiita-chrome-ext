@@ -7,7 +7,7 @@
 
 <main>
   <div class="container">
-    <h1>Notion x Qiita</h1>
+    <h1>Qiita Enhancer</h1>
     <Options {notionAPIToken} {dbID} />
   </div>
 </main>
