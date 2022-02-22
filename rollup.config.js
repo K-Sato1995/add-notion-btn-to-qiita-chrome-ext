@@ -59,6 +59,7 @@ function createConfig(path, filename, useSvelte = false) {
 
 export default [
     createConfig("src/options.ts", "options", true),
+    createConfig("src/popup.ts", "popup", true),
     createConfig("src/background/index.ts", "background"),
     createConfig("src/content_script/index.ts", "content_script"),
 ];
