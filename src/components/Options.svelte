@@ -3,6 +3,7 @@
 
   export let notionAPIToken: string = null;
   export let dbID: string = null;
+
   let successMessage: string = null;
 
   function save() {
@@ -21,8 +22,7 @@
   }
 </script>
 
-<div class="container">
-  <h1>Notion x Qiita</h1>
+<div>
   <input placeholder="Notion API Token" bind:value={notionAPIToken} />
   <input placeholder="Database Url" bind:value={dbID} />
   <div>
@@ -34,23 +34,6 @@
 <style>
   :root {
     --main-color: #ff3e00;
-  }
-
-  .container {
-    color: #333;
-    box-sizing: border-box;
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  }
-
-  h1 {
-    color: var(--main-color);
-    font-size: 2em;
-    font-weight: 100;
   }
 
   input,

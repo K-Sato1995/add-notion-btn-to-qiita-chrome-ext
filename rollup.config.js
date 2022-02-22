@@ -1,15 +1,15 @@
 // @ts-check
 
-import commonjs from "@rollup/plugin-commonjs";
-import resolve from "@rollup/plugin-node-resolve";
-import typescript from "@rollup/plugin-typescript";
-import css from "rollup-plugin-css-only";
-import svelte from "rollup-plugin-svelte";
-import { terser } from "rollup-plugin-terser";
-import sveltePreprocess from "svelte-preprocess";
-import json from '@rollup/plugin-json';
+import commonjs from '@rollup/plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
+import typescript from '@rollup/plugin-typescript'
+import css from 'rollup-plugin-css-only'
+import svelte from 'rollup-plugin-svelte'
+import { terser } from 'rollup-plugin-terser'
+import sveltePreprocess from 'svelte-preprocess'
+import json from '@rollup/plugin-json'
 
-const production = !process.env.ROLLUP_WATCH;
+const production = !process.env.ROLLUP_WATCH
 
 /**
  * @param {string} filename
@@ -19,7 +19,7 @@ function createConfig(path, filename, useSvelte = false) {
     return {
         input: path,
         output: {
-            format: "iife",
+            format: 'iife',
             file: `public/build/${filename}.js`,
         },
         plugins: [
@@ -43,7 +43,7 @@ function createConfig(path, filename, useSvelte = false) {
             // https://github.com/rollup/plugins/tree/master/packages/commonjs
             resolve({
                 browser: true,
-                dedupe: ["svelte"],
+                dedupe: ['svelte'],
             }),
 
             commonjs(),
@@ -54,12 +54,12 @@ function createConfig(path, filename, useSvelte = false) {
             // instead of npm run dev), minify
             production && terser(),
         ],
-    };
+    }
 }
 
 export default [
-    createConfig("src/options.ts", "options", true),
-    createConfig("src/popup.ts", "popup", true),
-    createConfig("src/background/index.ts", "background"),
-    createConfig("src/content_script/index.ts", "content_script"),
-];
+    createConfig('src/app.ts', 'app', true),
+    createConfig('src/popup.ts', 'popup', true),
+    createConfig('src/background/index.ts', 'background'),
+    createConfig('src/content_script/index.ts', 'content_script'),
+]
