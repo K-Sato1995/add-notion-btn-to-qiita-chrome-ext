@@ -1,7 +1,7 @@
 import type { NotionQiitaResponse, UserProfileResponse } from '../types'
 import { insertNotionBtnToQiita, handleNotionQiitaResponse } from './notionBtn'
 import { handleUserProfileResponse } from './userProfile'
-import { FETCH_USER_DATA, QIITA_USER_ID_INDEX, EXTENSION_ACTIONS } from '../consts'
+import { FETCH_USER_DATA, QIITA_USER_ID_INDEX } from '../consts'
 
 const currentURL = document.location.href
 const userID = currentURL.split('/')[QIITA_USER_ID_INDEX]
