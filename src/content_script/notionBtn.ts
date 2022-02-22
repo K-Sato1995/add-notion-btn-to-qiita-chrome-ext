@@ -24,7 +24,7 @@ export const insertNotionBtnToQiita = () => {
 }
 
 export const handleNotionQiitaResponse = (response: NotionQiitaResponse) => {
-  if (response.type == 'OK') {
+  if (response.type === 'OK') {
     alert(response.msg)
   } else {
     alert(response.msg)
